@@ -1,4 +1,4 @@
-import { mandelbrot as jsMandelbrot, countPrimes as jsCountPrimes, matrixMultiply as jsMatrixMultiply, boxBlur as jsBoxBlur, generateTestImage as jsGenerateTestImage } from '../../js-compute/index.js';
+import { mandelbrot as jsMandelbrot, countPrimes as jsCountPrimes, matrixMultiply as jsMatrixMultiply, boxBlur as jsBoxBlur, generateTestImage as jsGenerateTestImage } from '@js-compute/index.js';
 
 // WASM module
 let wasmModule = null;
