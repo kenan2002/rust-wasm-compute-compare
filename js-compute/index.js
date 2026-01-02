@@ -1,21 +1,20 @@
 /**
  * JavaScript Computation Module
  * 
- * This module provides the same computation as the Rust/WASM module
- * for comparison purposes.
+ * Re-exports all computation algorithms for comparison with Rust/WASM.
  */
 
-/**
- * Placeholder computation function.
- * TODO: Replace with actual computation logic.
- * 
- * @param {Uint8Array} input - The input data
- * @returns {Uint8Array} - The computed result
- */
-export function compute(input) {
-  // For now, just return a copy of the input
-  return new Uint8Array(input);
-}
+// Mandelbrot
+export { mandelbrot } from './mandelbrot.js';
+
+// Prime Sieve
+export { countPrimes, primeSieve } from './primes.js';
+
+// Matrix Multiplication
+export { matrixMultiply, matrixMultiplyOptimized } from './matrix.js';
+
+// Image Blur
+export { boxBlur, generateTestImage } from './blur.js';
 
 /**
  * Get the name of this computation module
@@ -25,3 +24,10 @@ export function getModuleName() {
   return "JavaScript";
 }
 
+/**
+ * List available computations
+ * @returns {string[]}
+ */
+export function listComputations() {
+  return ["mandelbrot", "primeSieve", "matrixMultiply"];
+}
