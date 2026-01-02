@@ -2,6 +2,8 @@
 
 A visual performance comparison between JavaScript and Rust (compiled to WebAssembly) across multiple computation benchmarks.
 
+**[🚀 Live Demo](https://kenan2002.github.io/rust-wasm-compute-compare/)**
+
 ## Benchmarks
 
 ### 🌀 Mandelbrot Set
@@ -13,6 +15,9 @@ Sieve of Eratosthenes with bit-level optimization. Find primes up to 100 million
 ### 📊 Matrix Multiplication
 Multiply two N×N matrices. O(N³) operations with cache-optimized access patterns.
 
+### 🌫️ Image Blur
+Box blur with configurable radius. Demonstrates pixel-level image processing.
+
 ## Features
 
 - 🎨 Side-by-side visual comparisons
@@ -22,21 +27,16 @@ Multiply two N×N matrices. O(N³) operations with cache-optimized access patter
 - 🚀 SIMD-optimized Rust for maximum performance
 - ⚖️ Fair comparisons with same algorithms on both sides
 
-## Project Structure
+## Performance Results
 
-```
-├── frontend/           # Vite web app
-│   ├── index.html      # Multi-benchmark UI
-│   └── src/
-│       ├── main.js     # Benchmark runner
-│       └── style.css   # Styled UI
-│
-├── js-compute/         # JavaScript implementations
-│   └── index.js        # All benchmarks
-│
-└── rust-compute/       # Rust implementations → WASM
-    └── src/lib.rs      # SIMD Mandelbrot, bit sieve, matrix multiply
-```
+See [BENCHMARK.md](./BENCHMARK.md) for detailed results with screenshots.
+
+| Benchmark | Rust Speedup |
+|-----------|--------------|
+| Mandelbrot (768×768) | **3.6×** faster |
+| Prime Sieve (10M) | **1.7×** faster |
+| Matrix Multiply (512×512) | **1.5×** faster |
+| Image Blur (512×512) | **2.0×** faster |
 
 ## Prerequisites
 
@@ -58,17 +58,7 @@ Then open http://localhost:3000
 
 ## Adding New Computations
 
-1. Add the function to `js-compute/index.js`
-2. Add the equivalent function to `rust-compute/src/lib.rs` with `#[wasm_bindgen]`
+1. Add the function to `js-compute/` as a new module
+2. Add the equivalent function to `rust-compute/src/` with `#[wasm_bindgen]`
 3. Add UI controls and results section in `frontend/index.html`
 4. Wire up the comparison in `frontend/src/main.js`
-
-## Performance Notes
-
-| Benchmark | Rust Advantage | Why |
-|-----------|----------------|-----|
-| Mandelbrot | ~2-4× | SIMD processes 4 pixels at once |
-| Prime Sieve | ~1.2-2× | Better memory efficiency, no GC |
-| Matrix Multiply | ~1.5-3× | Cache-optimized, predictable performance |
-
-Modern JS engines (V8, SpiderMonkey) are highly optimized. Rust/WASM wins through SIMD, memory control, and predictable execution.
