@@ -1,6 +1,17 @@
 # Benchmark Results
 
-Actual benchmark results captured on Chrome (macOS). All results are from the **second run** to avoid WASM initialization overhead.
+All results are from the **second run** to avoid WASM initialization overhead.
+
+## Test Environment
+
+| Component | Specification |
+|-----------|---------------|
+| **CPU** | Apple M4 Pro (14 cores: 10P + 4E) |
+| **Memory** | 24 GB |
+| **OS** | macOS |
+| **Browser** | Chrome |
+
+---
 
 ## 🌀 Mandelbrot Set (768×768, 1000 iterations)
 
