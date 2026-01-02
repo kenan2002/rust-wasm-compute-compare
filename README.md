@@ -34,9 +34,9 @@ See [BENCHMARK.md](./BENCHMARK.md) for detailed results with screenshots.
 | Benchmark | Rust Speedup |
 |-----------|--------------|
 | Mandelbrot (768×768) | **3.6×** faster |
-| Prime Sieve (10M) | **1.7×** faster |
-| Matrix Multiply (512×512) | **1.5×** faster |
-| Image Blur (512×512) | **2.0×** faster |
+| Prime Sieve (10M) | **1.8×** faster |
+| Matrix Multiply (512×512) | **1.4×** faster |
+| Image Blur (512×512) | **1.7×** faster |
 
 ## Prerequisites
 
